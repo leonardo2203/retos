@@ -17,6 +17,7 @@ public class CategoryController {
     @Autowired
     private Categoryservices categoryService;
 
+
     @GetMapping("/all")
     public List<Category> getAll() {
         return categoryService.getAll();
