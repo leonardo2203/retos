@@ -39,7 +39,7 @@ public class Messageservices {
     public Message update(Message message) {
         if (message.getIdMessage() != null) {
             Optional<Message> messageencotrado = messageRepository.getMessage(message.getIdMessage());
-            if (!messageencotrado.isEmpty()) {
+            if (!messageencotrado.isPresent()) {
                 if (message.getMessageText() != null) {
                     messageencotrado.get().setMessageText(message.getMessageText());
                 }
