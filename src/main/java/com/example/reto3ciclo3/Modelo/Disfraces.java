@@ -19,16 +19,16 @@ public class Disfraces {
     private String descripcion;
 
     @ManyToOne
-    @JoinColumn(name= "categorysid")
-    @JsonIgnoreProperties("Disfraces")
+    @JoinColumn(name= "categoryid")
+    @JsonIgnoreProperties("Disfrace")
     private Category category;
 
-    @OneToMany(cascade = {CascadeType.PERSIST},mappedBy = "disfraces")
-    @JsonIgnoreProperties({"Disfraces","Messages"})
+    @OneToMany(cascade = {CascadeType.PERSIST},mappedBy = "disfrace")
+    @JsonIgnoreProperties({"Disfraces","Message"})
     public List<Reservation>reservations;
 
-    @OneToMany(cascade = {CascadeType.PERSIST},mappedBy = "disfraces")
-    @JsonIgnoreProperties({"Disfrace","Client"})
+    @OneToMany(cascade = {CascadeType.PERSIST},mappedBy = "disfrace")
+    @JsonIgnoreProperties({"Disfraces","Client"})
     public  List<Message>messages;
 
     public Integer getId() {
