@@ -6,7 +6,7 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Table(name= "disfraces")
+@Table(name= "disfrace")
 
 public class Disfraces {
     @Id
@@ -20,15 +20,15 @@ public class Disfraces {
 
     @ManyToOne
     @JoinColumn(name= "categorysid")
-    @JsonIgnoreProperties("disfraces")
+    @JsonIgnoreProperties("Disfraces")
     private Category category;
 
     @OneToMany(cascade = {CascadeType.PERSIST},mappedBy = "disfraces")
-    @JsonIgnoreProperties({"disfraces","messages"})
+    @JsonIgnoreProperties({"Disfraces","Messages"})
     public List<Reservation>reservations;
 
     @OneToMany(cascade = {CascadeType.PERSIST},mappedBy = "disfraces")
-    @JsonIgnoreProperties({"disfraces","client"})
+    @JsonIgnoreProperties({"Disfrace","Client"})
     public  List<Message>messages;
 
     public Integer getId() {

@@ -3,18 +3,19 @@ package com.example.reto3ciclo3.Modelo;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
 @Table(name= "score")
-public class Score {
-    @javax.persistence.Id
+public class Score implements Serializable {
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idScore;
     private String messageText;
     private Integer stars;
 
     @OneToOne
-    @JsonIgnoreProperties("score")
+    @JsonIgnoreProperties("Score")
     private Reservation reservation;
 
     public Integer getIdScore() {

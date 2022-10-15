@@ -1,14 +1,12 @@
 package com.example.reto3ciclo3.Modelo;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
 @Table(name= "admin")
-public class Admin {
-    @javax.persistence.Id
+public class Admin implements Serializable {
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idAdmin;
     private String email;

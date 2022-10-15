@@ -3,34 +3,35 @@ package com.example.reto3ciclo3.Modelo;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Date;
 
 @Entity
 @Table(name= "reservation")
 
 
-public class Reservation {
-    @javax.persistence.Id
+public class Reservation implements Serializable {
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idReservation;
 
     private String cliente;
-    private Date startDate; //fecha de incio
+    private Date startDate;
     private Date devolutionDate;
     private String status ="created";
 
     @ManyToOne
     @JoinColumn( name="disfracesid")
-    @JsonIgnoreProperties("reservations")
+    @JsonIgnoreProperties("Reservations")
     private Disfraces disfraces;
 
     @ManyToOne
     @JoinColumn( name="client")
-    @JsonIgnoreProperties({"reservations","messages"})
+    @JsonIgnoreProperties({"Reservations","Messages"})
     private Client client;
 
     @OneToOne
-    @JsonIgnoreProperties("reservation")
+    @JsonIgnoreProperties("Reservation")
     private Score score;
 
     public Integer getIdReservation() {
@@ -39,6 +40,14 @@ public class Reservation {
 
     public void setIdReservation(Integer idReservation) {
         this.idReservation = idReservation;
+    }
+
+    public String getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(String cliente) {
+        this.cliente = cliente;
     }
 
     public Date getStartDate() {
@@ -87,13 +96,5 @@ public class Reservation {
 
     public void setScore(Score score) {
         this.score = score;
-    }
-
-    public String getCliente() {
-        return cliente;
-    }
-
-    public void setCliente(String cliente) {
-        this.cliente = cliente;
     }
 }

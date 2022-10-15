@@ -3,13 +3,14 @@ package com.example.reto3ciclo3.Modelo;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.List;
 
 @Entity
 @Table(name= "client")
 
-public class Client {
-    @javax.persistence.Id
+public class Client implements Serializable {
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idClient;
     private String email;
@@ -18,11 +19,11 @@ public class Client {
     private Integer age;
 
     @OneToMany (cascade = {CascadeType.PERSIST},mappedBy = "client")
-    @JsonIgnoreProperties("client")
+    @JsonIgnoreProperties("Client")
     public List<Reservation>reservations;
 
     @OneToMany (cascade = {CascadeType.PERSIST},mappedBy = "client")
-    @JsonIgnoreProperties("client")
+    @JsonIgnoreProperties("Client")
     public List<Message>messages;
 
     public Integer getIdClient() {
