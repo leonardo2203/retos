@@ -1,7 +1,7 @@
 package com.example.reto3ciclo3.services;
 
 import com.example.reto3ciclo3.Modelo.Admin;
-import com.example.reto3ciclo3.Modelo.Score;
+
 import com.example.reto3ciclo3.Repository.AdminRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
