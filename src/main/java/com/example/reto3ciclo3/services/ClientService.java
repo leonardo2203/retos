@@ -10,14 +10,16 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
+
 public class ClientService {
-    @Autowired
+
+
     private ClientRepository clientRepository;
 
     public List<Client> getAll(){
         return clientRepository.getAll();
     }
-    public Optional<Client> getProduct(int id){
+    public Optional<Client> getClient(int id){
         return clientRepository.getClient(id);
     }
     public Client save(Client p){

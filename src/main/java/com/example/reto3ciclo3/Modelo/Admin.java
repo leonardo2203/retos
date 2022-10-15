@@ -8,17 +8,17 @@ import java.io.Serializable;
 public class Admin implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer idAdmin;
+    private Integer id;
     private String email;
     private String name;
     private String password;
 
-    public Integer getIdAdmin() {
-        return idAdmin;
+    public Integer getId() {
+        return id;
     }
 
-    public void setIdAdmin(Integer idAdmin) {
-        this.idAdmin = idAdmin;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getEmail() {

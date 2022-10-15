@@ -17,7 +17,7 @@ public class Scoreservices {
                 .getAll();
     }
 
-    public Optional<Score> getProduct(int id) {
+    public Optional<Score> getScore(int id) {
         return scoreRepository.getScore(id);
     }
 

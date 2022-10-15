@@ -1,6 +1,7 @@
 package com.example.reto3ciclo3.services;
 
 import com.example.reto3ciclo3.Modelo.Admin;
+import com.example.reto3ciclo3.Modelo.Score;
 import com.example.reto3ciclo3.Repository.AdminRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,7 +16,7 @@ public class Adminservices {
     private AdminRepository adminRepository;
 
     public List<Admin> getAll(){
-        return (List<Admin>)adminRepository.getAll();
+        return adminRepository.getAll();
     }
 
     public Optional<Admin> getAdmin(int id){
@@ -23,10 +24,10 @@ public class Adminservices {
     }
 
     public Admin save(Admin admin){
-        if (admin.getIdAdmin()==null){
+        if (admin.getId()==null){
             return  adminRepository.save(admin);
         } else {
-            Optional<Admin> adminEncontrado = adminRepository.getAdmin(admin.getIdAdmin());
+            Optional<Admin> adminEncontrado = adminRepository.getAdmin(admin.getId());
             if (!adminEncontrado.isPresent()){
                 return adminRepository.save(admin);
 
@@ -36,8 +37,8 @@ public class Adminservices {
         }
     }
     public  Admin update (Admin admin){
-        if(admin.getIdAdmin() !=null){
-            Optional<Admin> adminEncontrado =adminRepository.getAdmin(admin.getIdAdmin());
+        if(admin.getId() !=null){
+            Optional<Admin> adminEncontrado =adminRepository.getAdmin(admin.getId());
             if (!adminEncontrado.isPresent()){
                 if(admin.getPassword() != null) {
                     adminEncontrado.get().setPassword(admin.getPassword());
@@ -56,13 +57,15 @@ public class Adminservices {
 
         }
 
-        public boolean deleteAdmin(int adminId){
-        boolean resultado= getAdmin(adminId).map(adminPorEliminar ->{
-            adminRepository.delete(adminPorEliminar);
-            return true;
-
-        }).orElse(false);
-        return resultado;
+    public boolean delete(int id) {
+        boolean flag = false;
+        Optional<Admin> p = adminRepository.getAdmin(id);
+        if (p.isPresent()) {
+            adminRepository.delete(p.get());
+            flag = true;
         }
+        return flag;
+
+    }
     }
 

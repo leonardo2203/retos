@@ -15,9 +15,9 @@ public class Message implements Serializable {
     private String messageText;
 
     @ManyToOne
-    @JoinColumn (name="disfraceid")
+    @JoinColumn (name="costumeid")
     @JsonIgnoreProperties ({"Messages","Reservations"})
-    private Disfraces disfraces;
+    private Costume costume;
 
     @ManyToOne
     @JoinColumn (name="clientid")
@@ -40,19 +40,19 @@ public class Message implements Serializable {
         this.messageText = messageText;
     }
 
-    public Disfraces getDisfraces() {
-        return disfraces;
+    public Costume getCostumes() {
+        return costume;
     }
 
-    public void setDisfraces(Disfraces disfraces) {
-        this.disfraces = disfraces;
+    public void setCostumes(Costume costumes) {
+        this.costume = costumes;
     }
 
-    public Client getClient() {
+    public Client getClients() {
         return client;
     }
 
-    public void setClient(Client client) {
-        this.client = client;
+    public void setClients(Client clients) {
+        this.client= clients;
     }
 }

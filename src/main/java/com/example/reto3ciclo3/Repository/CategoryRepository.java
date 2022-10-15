@@ -17,8 +17,8 @@ public class CategoryRepository {
         return (List<Category>)categoryCrudRepository.findAll();
     }
 
-    public Optional<Category> getCategory(Object object){
-        return categoryCrudRepository.findById((Integer) object);
+    public Optional<Category> getCategory(int id){
+        return categoryCrudRepository.findById((id));
     }
     public Category save(Category c){
         return categoryCrudRepository.save(c);

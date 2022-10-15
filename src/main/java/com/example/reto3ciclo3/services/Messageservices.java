@@ -19,7 +19,7 @@ public class Messageservices {
         return (List<Message>) messageRepository.getAll();
     }
 
-    public Optional<Message> getProduct(int id) {
+    public Optional<Message> getMesaage(int id) {
         return messageRepository.getMessage(id);
     }
 

@@ -6,29 +6,29 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Table(name= "disfrace")
+@Table(name= "costume")
 
-public class Disfraces {
+public class Costume {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer Id;
 
     private String name ;
-    private String marca;
-    private Integer year ; // numero entero de 4 digitos
-    private String descripcion;
+    private String brand;
+    private Integer year ;
+    private String description;
 
     @ManyToOne
-    @JoinColumn(name= "categoryid")
-    @JsonIgnoreProperties("Disfrace")
+    @JoinColumn(name= "categoryId")
+    @JsonIgnoreProperties("Costume")
     private Category category;
 
-    @OneToMany(cascade = {CascadeType.PERSIST},mappedBy = "disfrace")
-    @JsonIgnoreProperties({"Disfraces","Message"})
+    @OneToMany(cascade = {CascadeType.PERSIST},mappedBy = "costumes")
+    @JsonIgnoreProperties({"Costume","Message"})
     public List<Reservation>reservations;
 
-    @OneToMany(cascade = {CascadeType.PERSIST},mappedBy = "disfrace")
-    @JsonIgnoreProperties({"Disfraces","Client"})
+    @OneToMany(cascade = {CascadeType.PERSIST},mappedBy = "costume")
+    @JsonIgnoreProperties({"Costume","Client"})
     public  List<Message>messages;
 
     public Integer getId() {
@@ -48,11 +48,14 @@ public class Disfraces {
     }
 
     public String getMarca() {
-        return marca;
+        return
+                brand;
     }
 
     public void setMarca(String marca) {
-        this.marca = marca;
+        this.
+                brand =
+                brand;
     }
 
     public Integer getYear() {
@@ -63,19 +66,19 @@ public class Disfraces {
         this.year = year;
     }
 
-    public String getDescripcion() {
-        return descripcion;
+    public String getDescription() {
+        return description;
     }
 
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
-    public Category getCategorías() {
+    public Category getCategory() {
         return category;
     }
 
-    public void setCategorías(Category category) {
+    public void setCategory(Category category) {
         this.category = category;
     }
 

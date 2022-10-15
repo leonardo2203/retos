@@ -18,7 +18,7 @@ public class ReservationServices {
         return reservationRepository.getAll();
     }
 
-    public Optional<Reservation> getProduct(int id) {
+    public Optional<Reservation> getReservation(int id) {
         return reservationRepository.getReservation(id);
     }
 

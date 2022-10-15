@@ -4,9 +4,9 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 
-@EntityScan(basePackages = "{com.example.reto3ciclo3.Modelo}")
-@SpringBootApplication
 
+
+@SpringBootApplication
 public class Reto3ciclo3Application {
 
     public static void main(String[] args) {
