@@ -19,11 +19,11 @@ public class Client implements Serializable {
     private Integer age;
 
     @OneToMany (cascade = {CascadeType.PERSIST},mappedBy = "client")
-    @JsonIgnoreProperties("Client")
+    @JsonIgnoreProperties("client")
     public List<Reservation>reservations;
 
     @OneToMany (cascade = {CascadeType.PERSIST},mappedBy = "client")
-    @JsonIgnoreProperties("Client")
+    @JsonIgnoreProperties("client")
     public List<Message>messages;
 
     public Integer getIdClient() {

@@ -27,11 +27,11 @@ public class Reservation implements Serializable {
 
     @ManyToOne
     @JoinColumn( name="client")
-    @JsonIgnoreProperties({"Reservations","Messages"})
+    @JsonIgnoreProperties({"reservations","messages"})
     private Client client;
 
     @OneToOne
-    @JsonIgnoreProperties("Reservation")
+    @JsonIgnoreProperties("reservation")
     private Score score;
 
     public Integer getIdReservation() {

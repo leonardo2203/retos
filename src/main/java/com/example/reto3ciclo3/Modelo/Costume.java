@@ -21,15 +21,15 @@ public class Costume {
 
     @ManyToOne
     @JoinColumn(name= "categoryId")
-    @JsonIgnoreProperties("Costume")
+    @JsonIgnoreProperties("costumes")
     private Category category;
 
     @OneToMany(cascade = {CascadeType.PERSIST},mappedBy = "costumes")
-    @JsonIgnoreProperties({"Costume","Message"})
+    @JsonIgnoreProperties({"costumes","messages"})
     public List<Reservation>reservations;
 
     @OneToMany(cascade = {CascadeType.PERSIST},mappedBy = "costume")
-    @JsonIgnoreProperties({"Costume","Client"})
+    @JsonIgnoreProperties({"costume","client"})
     public  List<Message>messages;
 
     public Integer getId() {
