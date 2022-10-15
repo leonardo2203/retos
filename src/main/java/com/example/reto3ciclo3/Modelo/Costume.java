@@ -15,6 +15,7 @@ public class Costume {
 
     private String name ;
     private String brand;
+    @Column(name = "years")
     private Integer year ;
     private String description;
 
