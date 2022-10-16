@@ -3,50 +3,49 @@ package com.example.reto3ciclo3.Modelo;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
-import java.io.Serializable;
 
 @Entity
-@Table(name= "score")
-public class Score implements Serializable {
+@Table(name="score")
+public class Score {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer idScore;
-    private String messageText;
-    private Integer stars;
+    private Integer id;
+    private Integer score;
 
     @OneToOne
     @JsonIgnoreProperties("score")
-    private Reservation reservation;
+    private Reservation reservations;
 
-    public Integer getIdScore() {
-        return idScore;
+    public Integer getId() {
+        return id;
     }
 
-    public void setIdScore(Integer idScore) {
-        this.idScore = idScore;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
-    public String getMessageText() {
-        return messageText;
+    public Integer getScore() {
+        return score;
     }
 
-    public void setMessageText(String messageText) {
-        this.messageText = messageText;
+    public void setScore(Integer score) {
+        this.score = score;
     }
 
-    public Integer getStars() {
-        return stars;
+    public Reservation getReservations() {
+        return reservations;
     }
 
-    public void setStars(Integer stars) {
-        this.stars = stars;
+    public void setReservations(Reservation reservations) {
+        this.reservations = reservations;
     }
 
-    public Reservation getReservation() {
-        return reservation;
+    public Score(Integer id, Integer score, Reservation reservations) {
+        this.id = id;
+        this.score = score;
+        this.reservations = reservations;
     }
 
-    public void setReservation(Reservation reservation) {
-        this.reservation = reservation;
-    }
+
 }

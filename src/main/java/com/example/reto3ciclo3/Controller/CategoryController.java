@@ -1,7 +1,7 @@
 package com.example.reto3ciclo3.Controller;
 
 import com.example.reto3ciclo3.Modelo.Category;
-import com.example.reto3ciclo3.services.Categoryservices;
+import com.example.reto3ciclo3.services.CategoryService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -15,7 +15,7 @@ import java.util.List;
 public class CategoryController {
 
     @Autowired
-    private Categoryservices categoryService;
+    private CategoryService categoryService;
 
 
     @GetMapping("/all")

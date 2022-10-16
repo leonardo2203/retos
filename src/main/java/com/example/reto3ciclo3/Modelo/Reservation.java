@@ -3,36 +3,45 @@ package com.example.reto3ciclo3.Modelo;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
-import java.io.Serializable;
 import java.util.Date;
 
 @Entity
-@Table(name= "reservation")
+@Table(name="reservation")
+public class Reservation {
 
-
-public class Reservation implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idReservation;
 
-
     private Date startDate;
+
     private Date devolutionDate;
-    private String status ="created";
+
+    private String status= "created";
 
     @ManyToOne
-    @JoinColumn( name="costumeId")
+    @JoinColumn(name = "costumeId")
     @JsonIgnoreProperties("reservations")
-    private Costume costumes;
-
+    private Costume costume;
     @ManyToOne
-    @JoinColumn( name="clientId")
-    @JsonIgnoreProperties({"messages","reservations"})
+    @JoinColumn(name = "clientId")
+    @JsonIgnoreProperties({"reservations", "messages"})
     private Client client;
 
-    @OneToOne
+
+
+    @OneToOne(mappedBy = "reservations")
     @JsonIgnoreProperties("reservations")
     private Score score;
+
+
+    public Score getScore() {
+        return score;
+    }
+
+    public void setScore(Score score) {
+        this.score = score;
+    }
 
     public Integer getIdReservation() {
         return idReservation;
@@ -41,8 +50,6 @@ public class Reservation implements Serializable {
     public void setIdReservation(Integer idReservation) {
         this.idReservation = idReservation;
     }
-
-
 
     public Date getStartDate() {
         return startDate;
@@ -68,14 +75,6 @@ public class Reservation implements Serializable {
         this.status = status;
     }
 
-    public Costume getCostumes() {
-        return costumes;
-    }
-
-    public void setCostumes(Costume costumes) {
-        this.costumes = costumes;
-    }
-
     public Client getClient() {
         return client;
     }
@@ -84,11 +83,22 @@ public class Reservation implements Serializable {
         this.client = client;
     }
 
-    public Score getScore() {
-        return score;
+    public Costume getCostume() {
+        return costume;
     }
 
-    public void setScore(Score score) {
-        this.score = score;
+    public void setCostume(Costume costume) {
+        this.costume = costume;
     }
+
+    public Reservation() {
+    }
+
+    public Reservation(Integer idReservation, Date startDate, Date devolutionDate, String status) {
+        this.idReservation = idReservation;
+        this.startDate = startDate;
+        this.devolutionDate = devolutionDate;
+        this.status = status;
+    }
+
 }

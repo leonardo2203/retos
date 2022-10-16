@@ -7,16 +7,18 @@ import java.io.Serializable;
 import java.util.List;
 
 @Entity
-@Table(name= "Category")
+@Table(name = "category")
 public class Category implements Serializable {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-
     private String name;
     private String description;
 
-    @OneToMany(cascade = {CascadeType.PERSIST},mappedBy = "category")
+    //private String costumes;
+
+    @OneToMany(cascade = {CascadeType.PERSIST}, mappedBy = "category")
     @JsonIgnoreProperties("category")
     private List<Costume> costumes;
 
@@ -44,11 +46,21 @@ public class Category implements Serializable {
         this.description = description;
     }
 
-    public List<Costume> getCostume() {
+    public List<Costume> getCostumes() {
         return costumes;
     }
 
-    public void setCostume(List<Costume> costume) {
-        this.costumes = costume;
+    public void setCostumes(List<Costume> costumes) {
+        this.costumes = costumes;
+    }
+
+    public Category() {
+    }
+
+    public Category(Integer id, String name, String description, List<Costume> costumes) {
+        this.id = id;
+        this.name = name;
+        this.description = description;
+        this.costumes = costumes;
     }
 }

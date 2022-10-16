@@ -6,33 +6,44 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Table(name= "costume")
-
-public class Costume {
+@Table(name="costume")
+public class Costume{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-
-    private String name ;
+    private String name;
     private String brand;
-    @Column(name = "years")
-    private Integer year ;
+    private Integer year;
     private String description;
 
     @ManyToOne
-    @JoinColumn(name= "categoryId")
+    @JoinColumn(name ="categoryId")
     @JsonIgnoreProperties("costumes")
     private Category category;
 
-
-    @OneToMany(cascade = {CascadeType.PERSIST},mappedBy = "costume")
+    @OneToMany(mappedBy = "costume")
     @JsonIgnoreProperties({"costume","client"})
-    public  List<Message>messages;
-    @OneToMany(cascade = {CascadeType.PERSIST},mappedBy = "costume")
+    private List<Message> messages;
+
+    @OneToMany(mappedBy = "costume")
     @JsonIgnoreProperties({"costume","client"})
-    public List<Reservation>reservations;
+    private List<Reservation> reservations;
 
+    public List<Message> getMessages() {
+        return messages;
+    }
 
+    public void setMessages(List<Message> messages) {
+        this.messages = messages;
+    }
+
+    public List<Reservation> getReservations() {
+        return reservations;
+    }
+
+    public void setReservations(List<Reservation> reservations) {
+        this.reservations = reservations;
+    }
 
     public Integer getId() {
         return id;
@@ -82,22 +93,6 @@ public class Costume {
         this.category = category;
     }
 
-    public List<Reservation> getReservations() {
-        return reservations;
-    }
-
-    public void setReservations(List<Reservation> reservations) {
-        this.reservations = reservations;
-    }
-
-    public List<Message> getMessages() {
-        return messages;
-    }
-
-    public void setMessages(List<Message> messages) {
-        this.messages = messages;
-    }
-
     public Costume() {
     }
 
@@ -108,8 +103,6 @@ public class Costume {
         this.year = year;
         this.description = description;
         this.category = category;
-
-
-
     }
+
 }

@@ -3,27 +3,24 @@ package com.example.reto3ciclo3.Modelo;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
-import java.io.Serializable;
 
 @Entity
-@Table(name= "message")
-
-public class Message implements Serializable {
+@Table(name="message")
+public class Message {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idMessage;
     private String messageText;
 
     @ManyToOne
-    @JoinColumn (name="costumesId")
-    @JsonIgnoreProperties ({"messages","reservations"})
+    @JoinColumn(name="costumeId")
+    @JsonIgnoreProperties({"messages","reservations"})
     private Costume costume;
 
     @ManyToOne
-    @JoinColumn (name="clientId")
-    @JsonIgnoreProperties ({"messages","reservations"})
+    @JoinColumn(name="clientId")
+    @JsonIgnoreProperties({"messages", "reservations"})
     private Client client;
-
 
 
 
@@ -43,19 +40,30 @@ public class Message implements Serializable {
         this.messageText = messageText;
     }
 
-    public Costume getCostumes() {
+
+    public Costume getCostume() {
         return costume;
     }
 
-    public void setCostumes(Costume costumes) {
-        this.costume = costumes;
+    public void setCostume(Costume costume) {
+        this.costume = costume;
     }
 
-    public Client getClients() {
+    public Client getClient() {
         return client;
     }
 
-    public void setClients(Client clients) {
-        this.client= clients;
+    public void setClient(Client client) {
+        this.client = client;
+    }
+
+    public Message(Integer idMessage, String messageText, Costume costume, Client client) {
+        this.idMessage = idMessage;
+        this.messageText = messageText;
+        this.costume = costume;
+        this.client = client;
+    }
+
+    public Message() {
     }
 }

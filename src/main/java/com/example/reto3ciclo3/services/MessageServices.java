@@ -15,55 +15,43 @@ public class MessageServices {
     @Autowired
     private MessageRepository messageRepository;
 
-    public List<Message> getAll() {
-        return (List<Message>) messageRepository.getAll();
+
+    public List<Message> getAll(){
+        return messageRepository.getAll();
     }
 
-    public Optional<Message> getMessage(int id) {
+    public Optional<Message> getMessage(int id){
         return messageRepository.getMessage(id);
     }
 
-    public Message save(Message m) {
-        if (m.getIdMessage() == null) {
-            return messageRepository.save(m);
-        } else {
-            Optional<Message> e = messageRepository.getMessage(m.getIdMessage());
-            if (e.isPresent()) {
-                return m;
-            } else {
-                return messageRepository.save(m);
+    public Message save(Message p){
+        if (p.getIdMessage()==null){
+            return messageRepository.save(p);
+        }else {
+            Optional<Message> e = messageRepository.getMessage(p.getIdMessage());
+            if (e.isPresent()){
+                return p;
+            }else{
+                return messageRepository.save(p);
             }
         }
     }
 
-    public Message update(Message m) {
-        if (m.getIdMessage() != null) {
-            Optional<Message> w= messageRepository.getMessage(m.getIdMessage());
-            if (!w.isPresent()) {
-                if (m.getMessageText() != null) {
-                    w.get().setMessageText(m.getMessageText());
+    public Message update(Message message) {
+        if (message.getIdMessage() != null) {
+            Optional<Message> q = messageRepository.getMessage(message.getIdMessage());
+            if (!q.isPresent()) {
+                if (message.getMessageText() != null) {
+                    q.get().setMessageText(message.getMessageText());
                 }
-                if (m.getIdMessage() != null) {
-                    w.get().setIdMessage(m.getIdMessage());
-
-                }
-                if(m.getCostumes()!=null){
-                    w.get().setCostumes(m.getCostumes());
-                }
-                if(m.getClients()!=null){
-                    w.get().setClients(m.getClients());
-                }
-
-
-
-
-
-                return messageRepository.save(w.get());
-
+                messageRepository.save(q.get());
+                return q.get();
+            } else {
+                return message;
             }
+        } else {
+            return message;
         }
-        return m;
-
     }
 
     public boolean delete(int id) {

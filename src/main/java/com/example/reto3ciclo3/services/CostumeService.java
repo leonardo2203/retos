@@ -15,62 +15,52 @@ public class CostumeService {
     @Autowired
     private CostumeRepository costumeRepository;
 
-    public List<Costume> getAll() {
+    public List<Costume> getAll(){
         return costumeRepository.getAll();
     }
 
-    public Optional<Costume> getCostume(int id) {
+    public Optional<Costume> getCostume(int id){
         return costumeRepository.getCostume(id);
     }
 
-    public Costume save(Costume costume) {
-        if (costume.getId() == null) {
+    public Costume save(Costume costume){
+        if (costume.getId()==null){
             return costumeRepository.save(costume);
-        } else {
+        }else {
             Optional<Costume> e = costumeRepository.getCostume(costume.getId());
-            if (e.isPresent()) {
+            if (e.isPresent()){
                 return costume;
-            } else {
+            }else{
                 return costumeRepository.save(costume);
             }
         }
     }
 
-    public Costume update(Costume costume) {
-        if (costume.getId() != null) {
+    public Costume update(Costume costume){
+        if (costume.getId()!=null){
             Optional<Costume> q = costumeRepository.getCostume(costume.getId());
-            if (q.isPresent()) {
-                if (costume.getName() != null) {
+            if (!q.isPresent()){
+                if (costume.getName() !=null) {
                     q.get().setName(costume.getName());
-                }
-                if (costume.getDescription() != null) {
-                    q.get().setDescription(costume.getDescription());
-                }
-                if (costume.getBrand() != null) {
+                }if (costume.getBrand()!=null){
                     q.get().setBrand(costume.getBrand());
-                }
-                if (costume.getYear() != null) {
+                }if (costume.getYear()!=null){
                     q.get().setYear(costume.getYear());
-                }
-                if(costume.getCategory()!=null){
+                }if (costume.getDescription()!=null){
+                    q.get().setDescription(costume.getDescription());
+                }if (costume.getCategory()!=null){
                     q.get().setCategory(costume.getCategory());
                 }
-                if(costume.getMessages()!=null) {
-                    q.get().setMessages(costume.getMessages());
-                }
-                if(costume.getReservations()!=null){
-                    q.get().setReservations(costume.getReservations());
-                }
-
                 costumeRepository.save(q.get());
                 return q.get();
-            } else {
+            }else {
                 return costume;
             }
-        } else {
+        }else{
             return costume;
         }
     }
+
 
     public boolean delete(int id) {
         boolean flag = false;

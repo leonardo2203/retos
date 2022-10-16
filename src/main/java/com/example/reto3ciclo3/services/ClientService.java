@@ -14,57 +14,49 @@ import java.util.Optional;
 public class ClientService {
 
 
+    @Autowired
     private ClientRepository clientRepository;
 
     public List<Client> getAll(){
         return clientRepository.getAll();
     }
+
     public Optional<Client> getClient(int id){
         return clientRepository.getClient(id);
     }
-    public Client save(Client p){
-        if(p.getIdClient()==null){
-            return clientRepository.save(p);
-        }else{
-            Optional<Client> e = clientRepository.getClient(p.getIdClient());
-            if(e.isPresent()){
 
-                return p;
+    public Client save(Client client){
+        if (client.getIdClient()==null){
+            return clientRepository.save(client);
+        }else {
+            Optional<Client> e = clientRepository.getClient(client.getIdClient());
+            if (e.isPresent()){
+                return client;
             }else{
-                return clientRepository.save(p);
+                return clientRepository.save(client);
             }
         }
     }
-    public Client update(Client p){
-        if(p.getIdClient()!=null){
-            Optional<Client> q = clientRepository.getClient(p.getIdClient());
-            if(q.isPresent()){
-                if(p.getName()!=null){
-                    q.get().setName(p.getName());
-                }
-                if(p.getEmail()!=null){
-                    q.get().setEmail(p.getEmail());
-                }
-                if(p.getPassword()!=null){
-                    q.get().setPassword(p.getPassword());
-                }
-                if(p.getAge()!=null){
-                    q.get().setAge(p.getAge());
-                }
-                if(p.getMessages()!=null){
-                    q.get().setMessages(p.getMessages());
-                }
-                if(p.getReservations()!=null){
-                    q.get().setReservations(p.getReservations());
-                }
 
+
+    public Client update(Client client){
+        if (client.getIdClient()!=null){
+            Optional<Client> q = clientRepository.getClient(client.getIdClient());
+            if (!q.isPresent()){
+                if (client.getName() !=null) {
+                    q.get().setName(client.getName());
+                }if (client.getAge()!=null){
+                    q.get().setAge(client.getAge());
+                }if (client.getPassword()!=null){
+                    q.get().setPassword(client.getPassword());
+                }
                 clientRepository.save(q.get());
                 return q.get();
             }else{
-                return p;
+                return client;
             }
         }else{
-            return p;
+            return client;
         }
     }
     public boolean delete(int id){
