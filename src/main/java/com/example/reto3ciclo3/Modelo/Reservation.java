@@ -21,17 +21,17 @@ public class Reservation implements Serializable {
     private String status ="created";
 
     @ManyToOne
-    @JoinColumn( name="costumeid")
+    @JoinColumn( name="costumeId")
     @JsonIgnoreProperties("reservations")
     private Costume costumes;
 
     @ManyToOne
-    @JoinColumn( name="client")
+    @JoinColumn( name="clientId")
     @JsonIgnoreProperties({"reservations","messages"})
     private Client client;
 
     @OneToOne
-    @JsonIgnoreProperties("reservation")
+    @JsonIgnoreProperties("reservations")
     private Score score;
 
     public Integer getIdReservation() {

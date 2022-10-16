@@ -6,7 +6,7 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Table(name= "costume")
+@Table(name= "costumes")
 
 public class Costume {
     @Id
@@ -25,7 +25,7 @@ public class Costume {
     private Category category;
 
     @OneToMany(cascade = {CascadeType.PERSIST},mappedBy = "costumes")
-    @JsonIgnoreProperties({"costumes","messages"})
+    @JsonIgnoreProperties({"costume","messages"})
     public List<Reservation>reservations;
 
     @OneToMany(cascade = {CascadeType.PERSIST},mappedBy = "costume")
@@ -48,15 +48,12 @@ public class Costume {
         this.name = name;
     }
 
-    public String getMarca() {
-        return
-                brand;
+    public String getBrand() {
+        return brand;
     }
 
-    public void setMarca(String marca) {
-        this.
-                brand =
-                brand;
+    public void setBrand(String brand) {
+        this.brand = brand;
     }
 
     public Integer getYear() {

@@ -46,8 +46,8 @@ public class Costumeservices {
                 if (p.getDescription() != null) {
                     q.get().setDescription(p.getDescription());
                 }
-                if (p.getMarca() != null) {
-                    q.get().setMarca(p.getMarca());
+                if (p.getBrand() != null) {
+                    q.get().setBrand(p.getBrand());
                 }
                 if (p.getYear() != null) {
                     q.get().setYear(p.getYear());
