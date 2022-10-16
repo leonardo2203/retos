@@ -22,44 +22,47 @@ public class ReservationServices {
         return reservationRepository.getReservation(id);
     }
 
-    public Reservation save(Reservation p) {
-        if (p.getIdReservation() == null) {
-            return reservationRepository.save(p);
+    public Reservation save(Reservation r) {
+        if (r.getIdReservation() == null) {
+            return reservationRepository.save(r);
         } else {
-            Optional<Reservation> e = reservationRepository.getReservation(p.getIdReservation());
+            Optional<Reservation> e = reservationRepository.getReservation(r.getIdReservation());
             if (e.isPresent()) {
-                return p;
+                return r;
             } else {
-                return reservationRepository.save(p);
+                return reservationRepository.save(r);
             }
         }
     }
 
-    public Reservation update(Reservation p) {
-        if (p.getIdReservation() != null) {
-            Optional<Reservation> q = reservationRepository.getReservation(p.getIdReservation());
+    public Reservation update(Reservation r) {
+        if (r.getIdReservation() != null) {
+            Optional<Reservation> q = reservationRepository.getReservation(r.getIdReservation());
             if (q.isPresent()) {
-                if (p.getIdReservation() != null) {
-                    q.get().setIdReservation(p.getIdReservation());
+
+                if (r.getStartDate() != null) {
+                    q.get().setStartDate(r.getStartDate());
                 }
-
-
-            if (p.getCliente() != null) {
-                q.get().setCliente(p.getCliente());
-            }
-            if (p.getStartDate() != null) {
-                q.get().setStartDate(p.getStartDate());
-            }
-            if (p.getDevolutionDate() != null) {
-                q.get().setDevolutionDate(p.getDevolutionDate());
-            }
+                if (r.getDevolutionDate() != null) {
+                    q.get().setDevolutionDate(r.getDevolutionDate());
+                }
+                if(r.getStatus()!=null){
+                    q.get().setStatus(r.getStatus());
+                }
+                if(r.getClient()!=null){
+                    q.get().setClient(r.getClient());
+                }
+                if(r.getCostumes()!=null){
+                    q.get().setCostumes(r.getCostumes());
+                }
+           
             reservationRepository.save(q.get());
             return q.get();
         } else {
-            return p;
+            return r;
         }
     }else {
-        return p;
+        return r;
     }
 
 }

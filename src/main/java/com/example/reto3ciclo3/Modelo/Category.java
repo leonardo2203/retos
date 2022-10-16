@@ -14,11 +14,11 @@ public class Category implements Serializable {
     private Integer id;
 
     private String name;
-    private String descripcion;
+    private String description;
 
     @OneToMany(cascade = {CascadeType.PERSIST},mappedBy = "category")
     @JsonIgnoreProperties("category")
-    private List<Costume> costumes;
+    private List<Costume> costume;
 
     public Integer getId() {
         return id;
@@ -36,19 +36,19 @@ public class Category implements Serializable {
         this.name = name;
     }
 
-    public String getDescripcion() {
-        return descripcion;
+    public String getDescription() {
+        return description;
     }
 
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
-    public List<Costume> getCostumes() {
-        return costumes;
+    public List<Costume> getCostume() {
+        return costume;
     }
 
-    public void setCostumes(List<Costume> costumes) {
-        this.costumes = costumes;
+    public void setCostume(List<Costume> costume) {
+        this.costume = costume;
     }
 }

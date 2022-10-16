@@ -2,7 +2,7 @@ package com.example.reto3ciclo3.Controller;
 
 import com.example.reto3ciclo3.Modelo.Message;
 
-import com.example.reto3ciclo3.services.Messageservices;
+import com.example.reto3ciclo3.services.MessageServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -14,7 +14,7 @@ import java.util.List;
 public class MessageController {
 
     @Autowired
-    private Messageservices messageservices;
+    private MessageServices messageservices;
 
     @GetMapping("/all")
     public List<Message> getAll() {
@@ -23,7 +23,7 @@ public class MessageController {
 
     @PostMapping("/save")
     @ResponseStatus(HttpStatus.CREATED)
-    public Message save(@RequestBody Message p) {
-        return messageservices.save(p);
+    public Message save(@RequestBody Message m) {
+        return messageservices.save(m);
     }
 }

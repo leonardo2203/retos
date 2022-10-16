@@ -19,12 +19,12 @@ public class ClientRepository {
         return clientCrudRepository.findById((Integer) object);
     }
 
-    public Client save(Client client){
-        return clientCrudRepository.save(client);
+    public Client save(Client c){
+        return clientCrudRepository.save(c);
     }
 
-    public void delete (Client client){
-        clientCrudRepository.delete(client);
+    public void delete (Client c){
+        clientCrudRepository.delete(c);
     }
 }
 

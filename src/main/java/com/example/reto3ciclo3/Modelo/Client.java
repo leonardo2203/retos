@@ -18,13 +18,12 @@ public class Client implements Serializable {
     private String name;
     private Integer age;
 
-    @OneToMany (cascade = {CascadeType.PERSIST},mappedBy = "client")
+    @OneToMany(cascade = {CascadeType.PERSIST}, mappedBy = "client")
     @JsonIgnoreProperties("client")
-    public List<Reservation>reservations;
-
-    @OneToMany (cascade = {CascadeType.PERSIST},mappedBy = "client")
+    private List<Message> messages;
+    @OneToMany(cascade = {CascadeType.PERSIST}, mappedBy = "client")
     @JsonIgnoreProperties("client")
-    public List<Message>messages;
+    private List<Reservation> reservations;
 
     public Integer getIdClient() {
         return idClient;

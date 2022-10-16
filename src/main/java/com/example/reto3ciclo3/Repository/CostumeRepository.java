@@ -24,11 +24,11 @@ public class CostumeRepository {
         return costumeCrudRepository.findById(id);
     }
 
-    public Costume save(Costume c){
-        return costumeCrudRepository.save(c);
+    public Costume save(Costume l){
+        return costumeCrudRepository.save(l);
     }
 
-    public void delete (Costume c){
-        costumeCrudRepository.delete(c);
+    public void delete (Costume l){
+        costumeCrudRepository.delete(l);
     }
 }

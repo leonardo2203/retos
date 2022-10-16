@@ -21,7 +21,7 @@ public class Costume {
 
     @ManyToOne
     @JoinColumn(name= "categoryId")
-    @JsonIgnoreProperties("costume")
+    @JsonIgnoreProperties("costumes")
     private Category category;
 
     @OneToMany(cascade = {CascadeType.PERSIST},mappedBy = "costumes")

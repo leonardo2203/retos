@@ -23,11 +23,11 @@ public class ScoreRepository {
         return scoreCrudRepository.findById(id);
     }
 
-    public Score save(Score score){
-        return scoreCrudRepository.save(score);
+    public Score save(Score s){
+        return scoreCrudRepository.save(s);
     }
 
-    public void delete (Score score){
-        scoreCrudRepository.delete(score);
+    public void delete (Score s){
+        scoreCrudRepository.delete(s);
     }
 }

@@ -22,7 +22,7 @@ public class ReservationController {
     }
     @PostMapping ("/save")
     @ResponseStatus(HttpStatus.CREATED)
-    public Reservation save(@RequestBody  Reservation p){
-        return reservationServices.save(p);
+    public Reservation save(@RequestBody  Reservation r){
+        return reservationServices.save(r);
     }
 }

@@ -24,43 +24,40 @@ public class ScoreServices {
         return scoreRepository.getScore(id);
     }
 
-    public Score save(Score p) {
-        if (p.getIdScore() == null) {
-            return scoreRepository.save(p);
+    public Score save(Score s) {
+        if (s.getIdScore() == null) {
+            return scoreRepository.save(s);
         } else {
-            Optional<Score> e = scoreRepository.getScore(p.getIdScore());
+            Optional<Score> e = scoreRepository.getScore(s.getIdScore());
             if (e.isPresent()) {
-                return p;
+                return s;
             } else {
-                return scoreRepository.save(p);
+                return scoreRepository.save(s);
             }
         }
     }
 
-    public Score update(Score p) {
-        if (p.getIdScore() != null) {
-            Optional<Score> q = scoreRepository.getScore(p.getIdScore());
+    public Score update(Score s) {
+        if (s.getIdScore() != null) {
+            Optional<Score> q = scoreRepository.getScore(s.getIdScore());
             if (q.isPresent()) {
-                if (p.getIdScore() != null) {
-                    q.get().setIdScore(p.getIdScore());
+                if (s.getIdScore() != null) {
+                    q.get().setIdScore(s.getIdScore());
                 }
 
-                if (p.getIdScore() != null) {
-                    q.get().setIdScore(p.getIdScore());
+                if (s.getMessageText() != null) {
+                    q.get().setMessageText(s.getMessageText());
                 }
-                if (p.getMessageText() != null) {
-                    q.get().setMessageText(p.getMessageText());
-                }
-                if (p.getStars() != null) {
-                    q.get().setStars(p.getStars());
+                if (s.getStars() != null) {
+                    q.get().setStars(s.getStars());
                 }
                 scoreRepository.save(q.get());
                 return q.get();
             } else {
-                return p;
+                return s;
             }
         } else {
-            return p;
+            return s;
         }
 
     }

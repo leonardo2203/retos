@@ -45,6 +45,14 @@ public class Categoryservices {
                     if (p.getName() != null) {
                         q.get().setName(p.getName());
                     }
+                    if(p.getDescripcion()!=null) {
+                        q.get().setDescripcion(p.getDescripcion());
+                    }
+                    if(p.getCostume()!=null) {
+                        q.get().setCostume(p.getCostume());
+                    }
+
+
                     categoryRepository.save(q.get());
                     return q.get();
                 } else {
