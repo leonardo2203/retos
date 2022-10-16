@@ -6,7 +6,7 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Table(name= "costumes")
+@Table(name= "costume")
 
 public class Costume {
     @Id
@@ -21,7 +21,7 @@ public class Costume {
 
     @ManyToOne
     @JoinColumn(name= "categoryId")
-    @JsonIgnoreProperties("costumes")
+    @JsonIgnoreProperties("costume")
     private Category category;
 
     @OneToMany(cascade = {CascadeType.PERSIST},mappedBy = "costumes")
