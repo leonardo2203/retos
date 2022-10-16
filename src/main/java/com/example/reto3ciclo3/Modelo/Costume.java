@@ -24,13 +24,15 @@ public class Costume {
     @JsonIgnoreProperties("costumes")
     private Category category;
 
-    @OneToMany(cascade = {CascadeType.PERSIST},mappedBy = "costumes")
-    @JsonIgnoreProperties({"costume","messages"})
-    public List<Reservation>reservations;
 
     @OneToMany(cascade = {CascadeType.PERSIST},mappedBy = "costume")
     @JsonIgnoreProperties({"costume","client"})
     public  List<Message>messages;
+    @OneToMany(cascade = {CascadeType.PERSIST},mappedBy = "costume")
+    @JsonIgnoreProperties({"costume","client"})
+    public List<Reservation>reservations;
+
+
 
     public Integer getId() {
         return id;
@@ -94,5 +96,20 @@ public class Costume {
 
     public void setMessages(List<Message> messages) {
         this.messages = messages;
+    }
+
+    public Costume() {
+    }
+
+    public Costume(Integer id, String name, String brand, Integer year, String description, Category category) {
+        this.id = id;
+        this.name = name;
+        this.brand = brand;
+        this.year = year;
+        this.description = description;
+        this.category = category;
+
+
+
     }
 }

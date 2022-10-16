@@ -26,7 +26,5 @@ public class ClientController {
         public Client save(@RequestBody Client c){
             return clientService.save(c);
         }
-        public Object getIdClient() {
-            return null;
-        }
+
 }
