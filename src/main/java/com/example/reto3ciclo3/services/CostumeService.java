@@ -38,7 +38,7 @@ public class CostumeService {
     public Costume update(Costume costume){
         if (costume.getId()!=null){
             Optional<Costume> q = costumeRepository.getCostume(costume.getId());
-            if (!q.isPresent()){
+            if (q.isPresent()){
                 if (costume.getName() !=null) {
                     q.get().setName(costume.getName());
                 }if (costume.getBrand()!=null){
