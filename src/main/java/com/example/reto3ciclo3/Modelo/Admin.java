@@ -1,7 +1,6 @@
 package com.example.reto3ciclo3.Modelo;
 
 import javax.persistence.*;
-import java.io.Serializable;
 
 @Entity
 @Table(name = "admin")
