@@ -17,17 +17,17 @@ public class CostumeController {
     private CostumeService costumeService;
 
     @GetMapping("/all")
-    @PostMapping("/all")
+    //@PostMapping("/all")
     public List<Costume> getAll(){
         return costumeService.getAll();
     }
 
 
-    @PostMapping("/all")
+    /*@PostMapping("/all")
     @ResponseStatus(HttpStatus.CREATED)
     public List<Costume> getAll2(){
         return costumeService.getAll();
-    }
+    }*/
 
 
     @PostMapping("/save")

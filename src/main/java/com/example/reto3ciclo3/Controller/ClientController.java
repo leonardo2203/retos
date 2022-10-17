@@ -17,17 +17,17 @@ public class ClientController {
     private ClientService clientService;
 
     @GetMapping("/all")
-    @PostMapping("/all")
+    //@PostMapping("/all")
     public List<Client> getAll(){
         return clientService.getAll();
     }
 
 
-    @PostMapping("/all")
+    /*@PostMapping("/all")
     @ResponseStatus(HttpStatus.CREATED)
     public List<Client> getAll2(){
         return clientService.getAll();
-    }
+    }*/
     @PostMapping("/save")
     @ResponseStatus(HttpStatus.CREATED)
     public Client save (@RequestBody Client z){
