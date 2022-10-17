@@ -62,14 +62,11 @@ public class CostumeService {
     }
 
 
-    public boolean delete(int id) {
-        boolean flag = false;
-        Optional<Costume> p = costumeRepository.getCostume(id);
-        if (p.isPresent()) {
-            costumeRepository.delete(p.get());
-            flag = true;
-        }
-        return flag;
-
+    public boolean deleteCustome (int id){
+        Boolean d = getCostume(id).map(costume -> {
+            costumeRepository.delete(costume);
+            return true;
+        }).orElse(false);
+        return d;
     }
 }

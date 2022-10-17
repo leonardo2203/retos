@@ -41,6 +41,9 @@ public class Score {
         this.reservations = reservations;
     }
 
+    public Score() {
+    }
+
     public Score(Integer id, Integer score, Reservation reservations) {
         this.id = id;
         this.score = score;

@@ -29,4 +29,17 @@ public class CostumeController {
             return costumeservice.save(costume);
 
         }
+
+
+    @PutMapping("/update")
+    @ResponseStatus(HttpStatus.CREATED)
+    public Costume update(@RequestBody Costume costume ){
+        return costumeservice.update(costume);
+    }
+
+    @DeleteMapping("/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public boolean delete(@PathVariable("id") int id){
+        return costumeservice.deleteCustome( id);
+    }
 }

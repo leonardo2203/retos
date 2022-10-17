@@ -38,14 +38,24 @@ public class ScoreService {
 
 
 
-    public boolean delete(int id) {
-        boolean flag = false;
-        Optional<Score> p = scoreRepository.getScore(id);
-        if (p.isPresent()) {
-            scoreRepository.delete(p.get());
-            flag = true;
-        }
-        return flag;
+   // public boolean delete(int id) {
+   //   boolean flag = false;
+    //   Optional<Score> p = scoreRepository.getScore(id);
+    //  if (p.isPresent()) {
+    //      scoreRepository.delete(p.get());
+    //      flag = true;
+    //  }
+    //  return flag;
 
+    //}
+
+
+    public boolean deleteScore(int id){
+        Boolean d = getScore(id).map(score -> {
+            scoreRepository.delete(score);
+            return true;
+        }).orElse(false);
+        return d;
     }
 }
+

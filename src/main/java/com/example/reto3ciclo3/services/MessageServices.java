@@ -16,22 +16,22 @@ public class MessageServices {
     private MessageRepository messageRepository;
 
 
-    public List<Message> getAll(){
+    public List<Message> getAll() {
         return messageRepository.getAll();
     }
 
-    public Optional<Message> getMessage(int id){
+    public Optional<Message> getMessage(int id) {
         return messageRepository.getMessage(id);
     }
 
-    public Message save(Message p){
-        if (p.getIdMessage()==null){
+    public Message save(Message p) {
+        if (p.getIdMessage() == null) {
             return messageRepository.save(p);
-        }else {
+        } else {
             Optional<Message> e = messageRepository.getMessage(p.getIdMessage());
-            if (e.isPresent()){
+            if (e.isPresent()) {
                 return p;
-            }else{
+            } else {
                 return messageRepository.save(p);
             }
         }
@@ -54,15 +54,12 @@ public class MessageServices {
         }
     }
 
-    public boolean delete(int id) {
-        boolean flag = false;
-        Optional<Message> p = messageRepository.getMessage(id);
-        if (p.isPresent()) {
-            messageRepository.delete(p.get());
-            flag = true;
-        }
-        return flag;
+    public boolean deleteMessage(int id) {
+        Boolean d = getMessage(id).map(message -> {
+            messageRepository.delete(message);
+            return true;
+        }).orElse(false);
+        return d;
 
     }
-
 }
