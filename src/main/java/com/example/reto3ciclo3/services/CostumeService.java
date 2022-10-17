@@ -1,8 +1,8 @@
 package com.example.reto3ciclo3.services;
 
 import com.example.reto3ciclo3.Modelo.Costume;
-
 import com.example.reto3ciclo3.Repository.CostumeRepository;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,7 +11,6 @@ import java.util.Optional;
 
 @Service
 public class CostumeService {
-
     @Autowired
     private CostumeRepository costumeRepository;
 
@@ -61,6 +60,18 @@ public class CostumeService {
         }
     }
 
+
+
+
+//   public boolean delete(int id){
+//        boolean flag =false;
+//        Optional<Costume>p= costumeRepository.getCostume(id);
+//        if (p.isPresent()){
+//            costumeRepository.delete(p.get());
+//            flag=true;
+//        }
+//        return flag;
+//    }
 
     public boolean deleteCustome (int id){
         Boolean d = getCostume(id).map(costume -> {
