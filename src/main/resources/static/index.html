@@ -5,7 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
+  <! ––<script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script> ––>
   <title>Document</title>
 </head>
 <body>
@@ -18,10 +18,28 @@
   <button onclick="guardarInformacionCategoria()"> Guardar</button>
 
 
-	</div>
-  <div id="resultado">
+  <h1>Gestion de Clientes!</h1>
+  Id de cliente    : <input type="number" id="idCliente"><br><P></P>
+  Nombre de cliente: <input type="text" id="nombreCliente"><br><P></P>
+  Correo de cliente: <input type="text" id="correoCliente"><br><P></P>
+  Edad de cliente  : <input type="number" id="edadCliente"><br><P></P>
+  <hr>
+  <p></p>
+  <button onclick="guardarCliente()">GUARDAR CLIENTE</button>
+  <button onclick="editarCliente()">ACTUALIZAR CLIENTE</button>
+  <button onclick="leerClientes()">LISTAR CLIENTES</button>
+  <p></p>
+  <hr>
+
 
   </div>
+
+  </div>
+  <div id="resultado">
+    <div id="listaClientes">
+
+    </div>
+    </div>
   
 </body>
 
