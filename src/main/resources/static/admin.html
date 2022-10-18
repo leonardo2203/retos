@@ -6,43 +6,31 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
-  <title>Clientes</title>
+  <title>Admin</title>
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 </head>
 <body>
 
-  <h1>Categorias!</h1>
-  <input type="text" id="nameCategoria" placeholder="nombre categoria">
-
-  <button onclick="traerInformacionCategoria()"> Consultar</button>
-
-  <button onclick="guardarInformacionCategoria()"> Guardar</button>
+  <h1>Administrador!</h1>
 
 
-  <h1>Home</h1>
-  Id de cliente    : <input type="number" id="idCliente"><br><P></P>
-  Nombre de cliente: <input type="text" id="nombreCliente"><br><P></P>
-  Correo de cliente: <input type="text" id="correoCliente"><br><P></P>
-  Edad de cliente  : <input type="number" id="edadCliente"><br><P></P>
+  Id de administador    : <input type="number" id="idAdmin"><br><P></P>
+  Nombre de administrador: <input type="text" id="nombreAdmin"><br><P></P>
+  Correo de administrador: <input type="text" id="correoAdmin"><br><P></P>
+  contraseña de administrador : <input type="number" id="ContraseñaAdmin"><br><P></P>
   <hr>
   <p></p>
-  <button onclick="guardarCliente()">GUARDAR CLIENTE</button>
-  <button onclick="editarCliente()">ACTUALIZAR CLIENTE</button>
-  <button onclick="leerClientes()">LISTAR CLIENTES</button>
+  <button onclick="guardarAdmin()">GUARDAR ADMIN</button>
+  <button onclick="editarAdmin()">ACTUALIZAR ADMIN</button>
+  <button onclick="leerAdmin()">LISTAR ADMIN</button>
   <p></p>
   <hr>
 
+  <div id="listaAdmin">
 
   </div>
-
-  </div>
-  <div id="resultado">
-    <div id="listaClientes">
-
-    </div>
-    </div>
-  
+  </center>
 </body>
-
-<script type="text/javasecript" src="js/category.js/"></script>
+</html>
+<script type="text/javasecript" src="js/admin.js.js/"></script>
 </html>
