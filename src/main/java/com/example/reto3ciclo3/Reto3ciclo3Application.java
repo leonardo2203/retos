@@ -3,9 +3,6 @@ package com.example.reto3ciclo3;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-
-
-
 @SpringBootApplication
 public class Reto3ciclo3Application {
 

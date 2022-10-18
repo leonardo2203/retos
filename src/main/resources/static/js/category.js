@@ -1,6 +1,8 @@
 function traerInformacionCategoria(){
 
 
+
+
   $.ajax(
       {
   
@@ -64,9 +66,14 @@ function traerInformacionCategoria(){
       let myTable = "<table>";
       myTable += "<tr><th>Codigo/th><th>Nombre</th></tr>";
       for (i = 0; i < iteams.length; i++) {
+        myTable += "<tr>";
+        myTable += "<td>"; iteams[i].id+ "<td>";
+        myTable += "<td>"; iteams[i].name+ "<td>";
+        myTable += "<tr>";
+ }
   
-  
-      }
+ myTable += "</table>";
+ $ ("#resultado").append(myTable);
   
   }
   
